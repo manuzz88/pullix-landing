@@ -78,34 +78,32 @@
     }
     .nav-cta:hover { opacity: .85; }
 
-    /* ── HERO ── */
+    /* ── HERO (split: testo + foto) ── */
     .hero {
-      position: relative; min-height: 100svh; min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 0 24px 56px;
+      display: flex; flex-direction: column;
+      background: var(--dark);
     }
 
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-      background: var(--dark3);
-    }
-    .hero-bg img {
-      width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%;
-      opacity: .75;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(15,17,20,.3) 0%,
-        rgba(15,17,20,.1) 35%,
-        rgba(15,17,20,.7) 70%,
-        rgba(15,17,20,.95) 100%
-      );
+    .hero-content {
+      order: 1; position: relative; z-index: 1;
+      padding: 104px 24px 44px;
+      display: flex; flex-direction: column;
     }
 
-    .hero-content { position: relative; z-index: 1; max-width: 640px; }
+    .hero-media {
+      order: 2; position: relative;
+      height: 56vh; min-height: 320px;
+      background: var(--dark3); overflow: hidden;
+    }
+    .hero-media img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%;
+      display: block;
+    }
+    /* sfumatura morbida sul bordo tra testo e foto (mobile: in alto) */
+    .hero-media::before {
+      content: ''; position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(to bottom, rgba(15,17,20,.6) 0%, rgba(15,17,20,0) 18%);
+    }
 
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
@@ -152,13 +150,6 @@
       transition: color .15s, border-color .15s;
     }
     .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,.5); }
-
-    .hero-scroll {
-      position: absolute; bottom: 56px; right: 24px; z-index: 1;
-      display: flex; flex-direction: column; align-items: center; gap: 6px;
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--gray); writing-mode: vertical-rl;
-    }
 
     /* ── PRODUCT INTRO ── */
     .intro {
@@ -442,8 +433,18 @@
     @media (min-width: 768px) {
       nav { padding: 20px 48px; }
 
-      .hero { padding: 0 48px 72px; justify-content: center; padding-top: 120px; }
-      .hero-scroll { display: flex; }
+      .hero { flex-direction: row; min-height: 100vh; align-items: stretch; }
+      .hero-content {
+        flex: 1 1 0; order: 1; justify-content: center;
+        padding: 120px 56px; max-width: 50%;
+      }
+      .hero-media {
+        flex: 1 1 0; order: 2; height: auto; min-height: 100vh;
+      }
+      .hero-media img { object-position: 50% 50%; }
+      .hero-media::before {
+        background: linear-gradient(to right, rgba(15,17,20,.55) 0%, rgba(15,17,20,0) 16%);
+      }
 
       .intro, .features, .forwho, .techspecs, .cta-section,
       .video-sec, .tenin1, .gallery { padding: 100px 48px; }
@@ -465,7 +466,7 @@
 
     @media (min-width: 1024px) {
       nav { padding: 20px 64px; }
-      .hero { padding: 120px 64px 88px; }
+      .hero-content { padding: 120px 80px; }
       .intro, .features, .forwho, .techspecs, .cta-section { padding: 120px 64px; }
       footer { padding: 56px 64px; }
 
@@ -489,9 +490,6 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg">
-      <img src="assets/office.jpg" alt="pullix X1" loading="eager">
-    </div>
     <div class="hero-content">
       <div class="hero-badge">
         <span class="hero-badge-dot"></span>
@@ -507,6 +505,9 @@
         </a>
         <a class="btn-ghost" href="#product">Scopri di più</a>
       </div>
+    </div>
+    <div class="hero-media">
+      <img src="assets/office.jpg" alt="pullix X1 — smart home gym in uso" loading="eager">
     </div>
   </section>
 
