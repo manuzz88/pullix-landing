@@ -650,6 +650,94 @@
     .footer-sub { font-size: 14px; color: var(--g400); margin-top: 8px; }
 
     .footer-meta { font-size: 13px; color: #5E636B; letter-spacing: 0.04em; text-align: right; line-height: 1.6; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 767px) {
+
+      /* Nav */
+      .nav { padding: 16px 24px; }
+      .nav-meta { display: none; }
+
+      /* Hero: stack, image below as fixed-height panel */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        min-height: unset;
+      }
+
+      .hero-content { padding: 52px 24px 40px; gap: 40px; }
+      .hero-lockup  { margin: 0; }
+
+      .hero-img-wrap {
+        position: relative;
+        height: 56vw;
+        min-height: 220px;
+      }
+
+      .hero-img-wrap img { position: absolute; }
+
+      .hero-img-grad {
+        background: linear-gradient(180deg, #0F1114 0%, rgba(15,17,20,0) 30%);
+      }
+
+      /* Sections */
+      .sec-mark,
+      .sec-color,
+      .sec-type,
+      .sec-app  { padding: 64px 24px; }
+
+      .sec-hd { margin-bottom: 36px; }
+      .sec-t  { font-size: 26px; }
+
+      /* Mark */
+      .mark-grid          { grid-template-columns: 1fr; }
+      .card-primary       { padding: 36px 28px; min-height: unset; }
+      .card-mono          { min-height: unset; padding: 32px 28px; }
+      .lockup-wm          { font-size: 48px; }
+      .variants           { grid-template-columns: 1fr; }
+      .vcard              { padding: 28px; min-height: unset; }
+      .vwm                { font-size: 34px; }
+      .usage              { gap: 28px; }
+
+      /* Color */
+      .color-primaries    { grid-template-columns: 1fr; }
+      .swatch             { min-height: 180px; padding: 28px; }
+      .gscale             { grid-template-columns: repeat(3,1fr); }
+
+      /* Typography */
+      .type-cols          { grid-template-columns: 1fr; }
+      .type-card          { padding: 28px; }
+      .aa-display,
+      .aa-body            { font-size: 60px; }
+      .type-scale         { padding: 28px; }
+      .scale-row          { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .scale-lbl          { width: auto; }
+
+      /* Applications */
+      .life-card          { min-height: 300px; }
+      .app-cards          { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer             { padding: 48px 24px 64px; }
+      .footer-inner       { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .footer-wm          { font-size: 40px; }
+      .footer-meta        { text-align: left; }
+    }
+
+    /* ── TABLET ── */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .nav                { padding: 18px 32px; }
+      .hero-content       { padding: 64px 32px 56px; }
+      .sec-mark,
+      .sec-color,
+      .sec-type,
+      .sec-app            { padding: 80px 32px; }
+      .footer             { padding: 60px 32px 72px; }
+      .mark-grid          { grid-template-columns: 1fr; }
+      .card-primary       { min-height: unset; }
+      .card-mono          { min-height: unset; }
+      .app-cards          { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
