@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pullix. — Brand Identity v1.0</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --g950: #0F1114;
+      --g900: #14161A;
+      --g800: #1B1E23;
+      --g600: #3A3F46;
+      --g400: #8B919A;
+      --g200: #C7CCD3;
+      --mist: #F1F0EC;
+      --mist-warm: #FBFAF8;
+      --mist-border: #E2DFD7;
+      --volt: #C6F24E;
+      --display: 'Space Grotesk', sans-serif;
+      --body: 'Hanken Grotesk', sans-serif;
+    }
+
+    html, body { margin: 0; padding: 0; background: var(--g950); }
+
+    body {
+      font-family: var(--body);
+      color: #F3F3F1;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--volt); color: #14161A; }
+
+    /* ── NAV ── */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 56px;
+      border-bottom: 1px solid #23272D;
+      position: sticky;
+      top: 0;
+      background: rgba(15,17,20,0.82);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.04em;
+      color: #F3F3F1;
+      text-decoration: none;
+    }
+
+    .wordmark .vdot { color: var(--volt); }
+
+    .nav-meta {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      color: var(--g400);
+      text-transform: uppercase;
+    }
+
+    .nav-sep  { color: var(--g600); }
+    .nav-ver  { color: var(--volt); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      min-height: 88vh;
+      align-items: stretch;
+    }
+
+    .hero-content {
+      padding: 88px 56px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-eyebrow { display: flex; align-items: center; gap: 14px; }
+
+    .dial { flex: none; }
+
+    .hero-tag {
+      font-size: 12.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--g400);
+    }
+
+    .hero-lockup { margin: 48px 0; }
+
+    .hero-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(72px, 11vw, 148px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-wm .sdot {
+      color: var(--volt);
+      font-size: 0.42em;
+      transform: translateY(-0.55em);
+      margin-left: 0.04em;
+    }
+
+    .hero-tagline {
+      font-family: var(--display);
+      font-weight: 400;
+      font-size: clamp(22px, 2.6vw, 32px);
+      letter-spacing: -0.02em;
+      color: #F3F3F1;
+      margin: 22px 0 0;
+      max-width: 18ch;
+    }
+
+    .hero-foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #2D323A;
+      border-radius: 100px;
+      padding: 8px 16px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--g200);
+    }
+
+    .chip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--volt);
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: var(--g400);
+      max-width: 42ch;
+      line-height: 1.5;
+    }
+
+    .hero-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--g800);
+    }
+
+    .hero-img-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 60%;
+    }
+
+    .hero-img-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #0F1114 0%, rgba(15,17,20,0) 22%);
+    }
+
+    .hero-img-label {
+      position: absolute;
+      left: 32px;
+      bottom: 28px;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: -0.04em;
+      color: #fff;
+      mix-blend-mode: difference;
+    }
+
+    .hero-img-label .vdot { color: var(--volt); }
+
+    .hero-img-label .model {
+      font-weight: 400;
+      font-size: 13px;
+      margin-left: 8px;
+      letter-spacing: 0;
+      color: #fff;
+    }
+
+    /* ── SHARED SECTION SHELL ── */
+    .sec-mark { background: var(--mist); color: #14161A; padding: 96px 56px; }
+    .sec-color { background: var(--g950); color: #F3F3F1; padding: 96px 56px; }
+    .sec-type  { background: var(--mist); color: #14161A; padding: 96px 56px; }
+    .sec-app   { background: var(--g950); color: #F3F3F1; padding: 96px 56px; }
+
+    .inner { max-width: 1240px; margin: 0 auto; }
+
+    .sec-hd { display: flex; align-items: baseline; gap: 16px; margin-bottom: 56px; }
+
+    .sec-n {
+      font-family: var(--display);
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .sec-mark .sec-n  { color: #9A9388; }
+    .sec-color .sec-n { color: #5E636B; }
+    .sec-type .sec-n  { color: #9A9388; }
+    .sec-app .sec-n   { color: #5E636B; }
+
+    .sec-t {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    /* ── MARK ── */
+    .mark-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .clabel {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .cnote { font-size: 13px; }
+
+    /* Primary lockup */
+    .card-primary {
+      background: var(--mist-warm);
+      border: 1px solid var(--mist-border);
+      border-radius: 6px;
+      padding: 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 340px;
+    }
+
+    .card-primary .clabel { color: #A39C90; }
+    .card-primary .cnote  { color: #8C8579; }
+
+    .lockup-row { display: flex; align-items: center; gap: 24px; }
+
+    .lockup-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      color: #14161A;
+    }
+
+    .lockup-wm .sdot { font-size: 0.4em; transform: translateY(-0.6em); color: #14161A; }
+
+    /* Monogram */
+    .card-mono {
+      background: #14161A;
+      border-radius: 6px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 340px;
+    }
+
+    .card-mono .clabel { color: #6E737B; }
+    .card-mono .cnote  { color: #7C828B; text-align: center; }
+
+    .mono-center { display: flex; justify-content: center; }
+
+    .app-icon {
+      width: 124px;
+      height: 124px;
+      border-radius: 28px;
+      background: linear-gradient(160deg, #23272E, #14161A);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #2C313A;
+    }
+
+    .app-icon-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 74px;
+      letter-spacing: -0.05em;
+      color: #F3F3F1;
+    }
+
+    .app-icon-wm .vdot { color: var(--volt); font-size: 0.34em; transform: translateY(-0.4em); }
+
+    /* Variant row */
+    .variants { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 24px; }
+
+    .vcard {
+      border-radius: 6px;
+      padding: 38px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      justify-content: space-between;
+      min-height: 150px;
+    }
+
+    .vwm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 40px;
+      letter-spacing: -0.05em;
+    }
+
+    .vwm .sdot { font-size: 0.4em; transform: translateY(-0.6em); }
+
+    .v-light { background: var(--mist-warm); border: 1px solid var(--mist-border); }
+    .v-light .clabel { color: #A39C90; }
+    .v-light .vwm { color: #14161A; }
+    .v-light .vwm .sdot { color: var(--volt); }
+
+    .v-dark { background: #14161A; }
+    .v-dark .clabel { color: #6E737B; }
+    .v-dark .vwm { color: #F3F3F1; }
+    .v-dark .vwm .sdot { color: var(--volt); }
+
+    .v-volt { background: var(--volt); }
+    .v-volt .clabel { color: #5A6B22; }
+    .v-volt .vwm { color: #14161A; }
+    .v-volt .vwm .sdot { color: #14161A; }
+
+    /* Usage notes */
+    .usage { margin-top: 40px; display: flex; gap: 48px; flex-wrap: wrap; font-size: 14px; color: #7C766B; }
+
+    .usage-item { max-width: 30ch; }
+    .usage-item.wide { max-width: 34ch; }
+
+    .usage-title {
+      font-family: var(--display);
+      font-weight: 600;
+      color: #14161A;
+      margin-bottom: 6px;
+    }
+
+    /* ── COLOR ── */
+    .color-primaries {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .swatch {
+      border-radius: 6px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 260px;
+    }
+
+    .swatch-lbl {
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: auto;
+    }
+
+    .swatch-name { font-family: var(--display); font-weight: 600; font-size: 26px; letter-spacing: -0.03em; }
+    .swatch-codes { display: flex; gap: 24px; margin-top: 8px; font-size: 13px; }
+
+    .sw-graphite { background: #14161A; border: 1px solid #23272D; }
+    .sw-graphite .swatch-lbl   { color: #6E737B; }
+    .sw-graphite .swatch-codes { color: var(--g400); }
+
+    .sw-volt { background: var(--volt); color: #1E2410; }
+    .sw-volt .swatch-lbl   { color: #56661F; }
+    .sw-volt .swatch-codes { color: #5A6B22; }
+
+    .gscale {
+      display: grid;
+      grid-template-columns: repeat(6,1fr);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #23272D;
+    }
+
+    .gchip { padding: 22px 18px; height: 120px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .gchip-n { font-size: 12px; }
+    .gchip-h { font-size: 11px; }
+
+    .color-note { font-size: 14px; color: var(--g400); margin-top: 22px; max-width: 60ch; line-height: 1.6; }
+
+    /* ── TYPOGRAPHY ── */
+    .type-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+    .type-card {
+      background: var(--mist-warm);
+      border: 1px solid var(--mist-border);
+      border-radius: 6px;
+      padding: 44px;
+    }
+
+    .type-card-hd { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
+    .type-card-lbl { font-family: var(--display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #A39C90; }
+    .type-card-name { font-size: 13px; color: #8C8579; }
+
+    .aa-display { font-family: var(--display); font-weight: 600; font-size: 84px; line-height: 0.95; letter-spacing: -0.04em; color: #14161A; }
+    .aa-body    { font-family: var(--body);    font-weight: 700; font-size: 84px; line-height: 0.95; letter-spacing: -0.02em; color: #14161A; }
+
+    .type-chars { font-size: 18px; color: #5C564C; margin-top: 18px; }
+    .type-chars.display { font-family: var(--display); letter-spacing: 0.02em; }
+    .type-chars.body    { font-family: var(--body); }
+
+    .type-scale {
+      background: var(--mist-warm);
+      border: 1px solid var(--mist-border);
+      border-radius: 6px;
+      padding: 44px;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .scale-row {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      border-bottom: 1px solid #ECE9E1;
+      padding-bottom: 18px;
+    }
+
+    .scale-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .scale-lbl { width: 120px; flex: none; font-size: 12px; color: #A39C90; }
+
+    /* ── APPLICATIONS ── */
+    .life-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      min-height: 440px;
+      border: 1px solid #23272D;
+    }
+
+    .life-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 55%;
+    }
+
+    .life-grad {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,17,20,0.55) 0%, rgba(15,17,20,0) 30%, rgba(15,17,20,0.75) 100%);
+    }
+
+    .life-logo {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .life-logo-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 20px;
+      letter-spacing: -0.04em;
+      color: #fff;
+    }
+
+    .life-logo-wm .vdot { color: var(--volt); }
+
+    .life-hl {
+      position: absolute;
+      left: 32px;
+      bottom: 32px;
+      max-width: 30ch;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .app-cards { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; margin-top: 24px; }
+
+    /* Hangtag */
+    .hangtag-wrap {
+      background: var(--g800);
+      border: 1px solid #23272D;
+      border-radius: 6px;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+    }
+
+    .hangtag {
+      width: 190px;
+      background: #14161A;
+      border-radius: 14px;
+      padding: 30px 26px;
+      border: 1px solid #2C313A;
+    }
+
+    .hangtag-hole {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 3px solid #2C313A;
+      margin: 0 auto 26px;
+    }
+
+    .hangtag-wm {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 30px;
+      letter-spacing: -0.05em;
+      color: #F3F3F1;
+      margin-top: 18px;
+    }
+
+    .hangtag-wm .sdot { color: var(--volt); font-size: 0.4em; transform: translateY(-0.6em); }
+
+    .hangtag-model {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #6E737B;
+      margin-top: 8px;
+    }
+
+    /* Spec card */
+    .spec-card {
+      background: var(--volt);
+      color: #1A2008;
+      border-radius: 6px;
+      padding: 44px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 300px;
+    }
+
+    .spec-top { display: flex; justify-content: space-between; align-items: flex-start; }
+
+    .spec-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 34px;
+      letter-spacing: -0.05em;
+      color: #1A2008;
+    }
+
+    .spec-wm .sdot { font-size: 0.4em; transform: translateY(-0.6em); color: #1A2008; }
+
+    .spec-model { font-family: var(--display); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #1A2008; }
+
+    .spec-tagline {
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: #1A2008;
+    }
+
+    .spec-stats { display: flex; gap: 32px; margin-top: 26px; flex-wrap: wrap; }
+
+    .stat-val { font-family: var(--display); font-weight: 600; font-size: 26px; color: #1A2008; }
+    .stat-lbl { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #46570F; }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--g950);
+      color: #F3F3F1;
+      padding: 72px 56px 88px;
+      border-top: 1px solid #23272D;
+    }
+
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-wm {
+      display: flex;
+      align-items: baseline;
+      font-family: var(--display);
+      font-weight: 600;
+      font-size: 56px;
+      letter-spacing: -0.05em;
+    }
+
+    .footer-wm .sdot { color: var(--volt); font-size: 0.4em; transform: translateY(-0.6em); }
+
+    .footer-sub { font-size: 14px; color: var(--g400); margin-top: 8px; }
+
+    .footer-meta { font-size: 13px; color: #5E636B; letter-spacing: 0.04em; text-align: right; line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <nav class="nav">
+    <div class="wordmark">pullix<span class="vdot">.</span></div>
+    <div class="nav-meta">
+      <span>Brand Guidelines</span>
+      <span class="nav-sep">/</span>
+      <span>Model X1</span>
+      <span class="nav-sep">/</span>
+      <span class="nav-ver">v1.0</span>
+    </div>
+  </nav>
+
+  <!-- HERO / COVER -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <svg class="dial" width="46" height="46" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="44" stroke="#F3F3F1" stroke-width="2.5"/>
+          <circle cx="50" cy="50" r="29" stroke="#F3F3F1" stroke-width="2.5" stroke-opacity="0.4"/>
+          <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="4" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          <circle cx="50" cy="50" r="7" fill="#C6F24E"/>
+        </svg>
+        <span class="hero-tag">Smart Home Gym</span>
+      </div>
+
+      <div class="hero-lockup">
+        <div class="hero-wm">pullix<span class="sdot">.</span></div>
+        <p class="hero-tagline">Strength, at your fingertips.</p>
+      </div>
+
+      <div class="hero-foot">
+        <span class="chip"><span class="chip-dot"></span>Model X1</span>
+        <span class="hero-desc">Digital-weight resistance, 0.5–20&nbsp;kg per side, independently controlled. The whole gym, distilled into one object.</span>
+      </div>
+    </div>
+
+    <div class="hero-img-wrap">
+      <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1 in use">
+      <div class="hero-img-grad"></div>
+      <div class="hero-img-label">pullix<span class="vdot">.</span><span class="model">X1</span></div>
+    </div>
+  </section>
+
+  <!-- 01 · THE MARK -->
+  <section class="sec-mark">
+    <div class="inner">
+      <div class="sec-hd">
+        <span class="sec-n">01</span>
+        <h2 class="sec-t">The mark</h2>
+      </div>
+
+      <div class="mark-grid">
+        <!-- Primary lockup -->
+        <div class="card-primary">
+          <span class="clabel">Primary lockup</span>
+          <div class="lockup-row">
+            <svg class="dial" width="84" height="84" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="44" stroke="#14161A" stroke-width="2.5"/>
+              <circle cx="50" cy="50" r="29" stroke="#14161A" stroke-width="2.5" stroke-opacity="0.35"/>
+              <circle cx="50" cy="50" r="44" stroke="#14161A" stroke-width="4" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              <circle cx="50" cy="50" r="7" fill="#14161A"/>
+            </svg>
+            <div class="lockup-wm">pullix<span class="sdot">.</span></div>
+          </div>
+          <span class="cnote">Dial mark + wordmark, locked at a 1:1 cap-height relationship.</span>
+        </div>
+
+        <!-- Monogram / app icon -->
+        <div class="card-mono">
+          <span class="clabel">Monogram / app icon</span>
+          <div class="mono-center">
+            <div class="app-icon">
+              <div class="app-icon-wm">p<span class="vdot">.</span></div>
+            </div>
+          </div>
+          <span class="cnote">Squircle, 22% corner radius.</span>
+        </div>
+      </div>
+
+      <!-- Variants -->
+      <div class="variants">
+        <div class="vcard v-light">
+          <span class="clabel">Wordmark</span>
+          <div class="vwm">pullix<span class="sdot">.</span></div>
+        </div>
+        <div class="vcard v-dark">
+          <span class="clabel">On graphite</span>
+          <div class="vwm">pullix<span class="sdot">.</span></div>
+        </div>
+        <div class="vcard v-volt">
+          <span class="clabel">On volt</span>
+          <div class="vwm">pullix<span class="sdot">.</span></div>
+        </div>
+      </div>
+
+      <!-- Usage rules -->
+      <div class="usage">
+        <div class="usage-item">
+          <div class="usage-title">Clear space</div>
+          <span>Keep clear space equal to the dial diameter on all sides.</span>
+        </div>
+        <div class="usage-item">
+          <div class="usage-title">Minimum size</div>
+          <span>Wordmark no smaller than 18&nbsp;px / 5&nbsp;mm in print.</span>
+        </div>
+        <div class="usage-item wide">
+          <div class="usage-title">The dot</div>
+          <span>The volt dot is the brand signature — it carries through the wordmark, the "i", and the dial centre.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · COLOUR -->
+  <section class="sec-color">
+    <div class="inner">
+      <div class="sec-hd">
+        <span class="sec-n">02</span>
+        <h2 class="sec-t">Colour</h2>
+      </div>
+
+      <div class="color-primaries">
+        <div class="swatch sw-graphite">
+          <span class="swatch-lbl">Primary</span>
+          <div class="swatch-name">Graphite</div>
+          <div class="swatch-codes"><span>#14161A</span><span>oklch(0.20 0.008 260)</span></div>
+        </div>
+        <div class="swatch sw-volt">
+          <span class="swatch-lbl">Accent</span>
+          <div class="swatch-name">Volt</div>
+          <div class="swatch-codes"><span>#C6F24E</span><span>oklch(0.90 0.18 122)</span></div>
+        </div>
+      </div>
+
+      <div class="gscale">
+        <div class="gchip" style="background:#0F1114;">
+          <span class="gchip-n" style="color:#8B919A;">950</span>
+          <span class="gchip-h" style="color:#5E636B;">#0F1114</span>
+        </div>
+        <div class="gchip" style="background:#14161A;">
+          <span class="gchip-n" style="color:#8B919A;">900</span>
+          <span class="gchip-h" style="color:#5E636B;">#14161A</span>
+        </div>
+        <div class="gchip" style="background:#1B1E23;">
+          <span class="gchip-n" style="color:#8B919A;">800</span>
+          <span class="gchip-h" style="color:#5E636B;">#1B1E23</span>
+        </div>
+        <div class="gchip" style="background:#3A3F46;">
+          <span class="gchip-n" style="color:#C7CCD3;">600</span>
+          <span class="gchip-h" style="color:#9298A1;">#3A3F46</span>
+        </div>
+        <div class="gchip" style="background:#8B919A;">
+          <span class="gchip-n" style="color:#14161A;">400</span>
+          <span class="gchip-h" style="color:#2A2E34;">#8B919A</span>
+        </div>
+        <div class="gchip" style="background:#F1F0EC;">
+          <span class="gchip-n" style="color:#14161A;">Mist</span>
+          <span class="gchip-h" style="color:#9A9388;">#F1F0EC</span>
+        </div>
+      </div>
+
+      <p class="color-note">Graphite carries the brand; volt appears in small, deliberate doses — never more than ~5% of any surface. Mist is the only light background.</p>
+    </div>
+  </section>
+
+  <!-- 03 · TYPOGRAPHY -->
+  <section class="sec-type">
+    <div class="inner">
+      <div class="sec-hd">
+        <span class="sec-n">03</span>
+        <h2 class="sec-t">Typography</h2>
+      </div>
+
+      <div class="type-cols">
+        <div class="type-card">
+          <div class="type-card-hd">
+            <span class="type-card-lbl">Display</span>
+            <span class="type-card-name">Space Grotesk</span>
+          </div>
+          <div class="aa-display">Aa</div>
+          <div class="type-chars display">ABCDEFGHIJKLM<br>abcdefghijklm 0123456789</div>
+        </div>
+        <div class="type-card">
+          <div class="type-card-hd">
+            <span class="type-card-lbl">Text</span>
+            <span class="type-card-name">Hanken Grotesk</span>
+          </div>
+          <div class="aa-body">Aa</div>
+          <div class="type-chars body">ABCDEFGHIJKLM<br>abcdefghijklm 0123456789</div>
+        </div>
+      </div>
+
+      <div class="type-scale">
+        <div class="scale-row">
+          <span class="scale-lbl">Display / 64</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:46px;letter-spacing:-0.04em;color:#14161A;">The whole gym, distilled.</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-lbl">Heading / 32</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:30px;letter-spacing:-0.02em;color:#14161A;">Digital weight, independently controlled</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-lbl">Body / 17</span>
+          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:17px;color:#3C382F;max-width:52ch;line-height:1.55;">Resistance from 0.5 to 20&nbsp;kg per side, set in half-kilo steps. Train anywhere — wall, floor, office or hotel room — with the precision of a full rack.</span>
+        </div>
+        <div class="scale-row">
+          <span class="scale-lbl">Mono / label</span>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#8C8579;">Model X1 · 0.5–20 kg · Independent</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 · IN USE -->
+  <section class="sec-app">
+    <div class="inner">
+      <div class="sec-hd">
+        <span class="sec-n">04</span>
+        <h2 class="sec-t">In use</h2>
+      </div>
+
+      <!-- Lifestyle hero -->
+      <div class="life-card">
+        <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1 application">
+        <div class="life-grad"></div>
+        <div class="life-logo">
+          <svg class="dial" width="34" height="34" viewBox="0 0 100 100" fill="none">
+            <circle cx="50" cy="50" r="44" stroke="#fff" stroke-width="3"/>
+            <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="5" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+            <circle cx="50" cy="50" r="9" fill="#C6F24E"/>
+          </svg>
+          <div class="life-logo-wm">pullix<span class="vdot">.</span></div>
+        </div>
+        <div class="life-hl">Your office is now<br>your gym.</div>
+      </div>
+
+      <!-- Hangtag + spec card -->
+      <div class="app-cards">
+        <div class="hangtag-wrap">
+          <div class="hangtag">
+            <div class="hangtag-hole"></div>
+            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" style="display:block;margin:0 auto;">
+              <circle cx="50" cy="50" r="44" stroke="#F3F3F1" stroke-width="3"/>
+              <circle cx="50" cy="50" r="29" stroke="#F3F3F1" stroke-width="3" stroke-opacity="0.4"/>
+              <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="5" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              <circle cx="50" cy="50" r="9" fill="#C6F24E"/>
+            </svg>
+            <div class="hangtag-wm">pullix<span class="sdot">.</span></div>
+            <div class="hangtag-model">Model X1</div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <div class="spec-top">
+            <div class="spec-wm">pullix<span class="sdot">.</span></div>
+            <span class="spec-model">X1</span>
+          </div>
+          <div>
+            <div class="spec-tagline">Strength, at your fingertips.</div>
+            <div class="spec-stats">
+              <div>
+                <div class="stat-val">0.5–20</div>
+                <div class="stat-lbl">kg / side</div>
+              </div>
+              <div>
+                <div class="stat-val">2×</div>
+                <div class="stat-lbl">independent</div>
+              </div>
+              <div>
+                <div class="stat-val">∞</div>
+                <div class="stat-lbl">places to train</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-wm">pullix<span class="sdot">.</span></div>
+        <div class="footer-sub">pullix.fit · Smart Home Gym · Model X1</div>
+      </div>
+      <div class="footer-meta">Brand Identity v1.0<br>© pullix.fit</div>
+    </div>
+  </footer>
+
+</body>
+</html>
