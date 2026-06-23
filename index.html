@@ -361,6 +361,83 @@
     footer a { color: var(--gray); text-decoration: none; }
     footer a:hover { color: var(--white); }
 
+    /* ── VIDEO ── */
+    .video-sec { background: var(--dark); padding: 80px 24px; }
+    .video-inner { max-width: 1100px; margin: 0 auto; }
+    .video-sec h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(26px, 5vw, 38px); letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+    .video-frame {
+      position: relative; border-radius: 16px; overflow: hidden;
+      border: 1px solid var(--mid); background: var(--dark3);
+      aspect-ratio: 16 / 9;
+    }
+    .video-frame video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+
+    /* ── 10 IN 1 ── */
+    .tenin1 { background: var(--mist); color: var(--dark2); padding: 80px 24px; }
+    .tenin1-inner { max-width: 1100px; margin: 0 auto; }
+    .tenin1 h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(32px, 7vw, 52px); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 16px;
+    }
+    .tenin1 h2 em { font-style: normal; color: #B0A998; }
+    .tenin1-sub {
+      font-size: 15px; line-height: 1.6; color: #6B655C;
+      max-width: 50ch; margin-bottom: 40px;
+    }
+    .tenin1-grid {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 12px;
+    }
+    .machine {
+      background: #FBFAF8; border: 1px solid #E2DFD7; border-radius: 12px;
+      padding: 22px 20px; font-family: var(--d); font-weight: 600;
+      font-size: 17px; letter-spacing: -0.02em; color: var(--dark2);
+      display: flex; align-items: center; gap: 14px;
+      transition: border-color .15s, transform .15s;
+    }
+    .machine:hover { border-color: var(--dark2); transform: translateY(-2px); }
+    .machine-n {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.05em;
+      color: #1A2008; background: var(--volt);
+      width: 30px; height: 30px; border-radius: 8px; flex: none;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── GALLERY ── */
+    .gallery { background: var(--dark2); padding: 80px 24px; }
+    .gallery-inner { max-width: 1100px; margin: 0 auto; }
+    .gallery h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(26px, 5vw, 38px); letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+    .gallery-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .ph-wide { grid-column: span 2; aspect-ratio: 16 / 10; }
+    .ph {
+      position: relative; margin: 0; border-radius: 14px; overflow: hidden;
+      aspect-ratio: 1 / 1; background: var(--dark3); border: 1px solid var(--mid);
+    }
+    .ph img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .4s ease;
+    }
+    .ph:hover img { transform: scale(1.04); }
+    .ph figcaption {
+      position: absolute; left: 14px; bottom: 12px;
+      font-family: var(--d); font-weight: 600; font-size: 13px;
+      color: #fff; letter-spacing: -0.01em;
+      background: rgba(15,17,20,.55); backdrop-filter: blur(6px);
+      padding: 6px 12px; border-radius: 100px;
+    }
+
     /* ── DESKTOP TWEAKS ── */
     @media (min-width: 768px) {
       nav { padding: 20px 48px; }
@@ -368,7 +445,8 @@
       .hero { padding: 0 48px 72px; justify-content: center; padding-top: 120px; }
       .hero-scroll { display: flex; }
 
-      .intro, .features, .forwho, .techspecs, .cta-section { padding: 100px 48px; }
+      .intro, .features, .forwho, .techspecs, .cta-section,
+      .video-sec, .tenin1, .gallery { padding: 100px 48px; }
       footer { padding: 48px; flex-direction: row; justify-content: space-between; text-align: left; }
 
       .features-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
@@ -376,6 +454,13 @@
       .audience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
 
       .specs-table td:first-child { width: 40%; }
+
+      .tenin1-grid { grid-template-columns: repeat(5,1fr); gap: 14px; }
+      .machine { flex-direction: column; align-items: flex-start; gap: 18px; min-height: 130px; justify-content: space-between; }
+
+      .gallery-grid { grid-template-columns: repeat(3,1fr); gap: 16px; }
+      .ph { aspect-ratio: 3 / 4; }
+      .ph-wide { grid-column: span 1; aspect-ratio: 3 / 4; }
     }
 
     @media (min-width: 1024px) {
@@ -405,7 +490,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1" loading="eager">
+      <img src="assets/office.jpg" alt="pullix X1" loading="eager">
     </div>
     <div class="hero-content">
       <div class="hero-badge">
@@ -447,6 +532,73 @@
           <span class="spec-val">∞</span>
           <span class="spec-key">Luoghi</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section class="video-sec" id="video">
+    <div class="video-inner">
+      <p class="section-label" style="color:var(--gray);">Guarda / Watch</p>
+      <h2>pullix X1 in azione.</h2>
+      <div class="video-frame">
+        <video
+          src="assets/bgmekc-h264-hd.mp4"
+          poster="assets/wall-duo.jpg"
+          controls muted loop playsinline preload="metadata">
+          Il tuo browser non supporta il video.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 IN 1 -->
+  <section class="tenin1">
+    <div class="tenin1-inner">
+      <p class="section-label" style="color:#9A9388;">Un solo prodotto / One product</p>
+      <h2>10 macchine<br><em>in&nbsp;una.</em></h2>
+      <p class="tenin1-sub">Un'intera sala pesi in un unico oggetto. pullix X1 sostituisce dieci attrezzi diversi.<br><span style="color:#9A9388;">An entire gym in one object — pullix X1 replaces ten machines.</span></p>
+      <div class="tenin1-grid">
+        <div class="machine"><span class="machine-n">01</span>Barbells</div>
+        <div class="machine"><span class="machine-n">02</span>Dumbbells</div>
+        <div class="machine"><span class="machine-n">03</span>Pilates</div>
+        <div class="machine"><span class="machine-n">04</span>Cable&nbsp;Cross</div>
+        <div class="machine"><span class="machine-n">05</span>Bench&nbsp;Press</div>
+        <div class="machine"><span class="machine-n">06</span>Rower</div>
+        <div class="machine"><span class="machine-n">07</span>Ski</div>
+        <div class="machine"><span class="machine-n">08</span>Squat&nbsp;Rack</div>
+        <div class="machine"><span class="machine-n">09</span>Boxing</div>
+        <div class="machine"><span class="machine-n">10</span>Golf&nbsp;Trainer</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY / VERSATILITY -->
+  <section class="gallery">
+    <div class="gallery-inner">
+      <p class="section-label" style="color:var(--gray);">Versatilità / Anywhere</p>
+      <h2>Allenati ovunque.</h2>
+      <div class="gallery-grid">
+        <figure class="ph ph-wide">
+          <img src="assets/wall-home.jpg" alt="pullix X1 montato a muro in home gym" loading="lazy">
+          <figcaption>A muro · Home gym</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="assets/outdoor.jpg" alt="pullix X1 usato all'aperto" loading="lazy">
+          <figcaption>All'aperto</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="assets/bench.jpg" alt="pullix X1 con panca reformer" loading="lazy">
+          <figcaption>Panca · Reformer</figcaption>
+        </figure>
+        <figure class="ph">
+          <img src="assets/wall-duo.jpg" alt="Due persone si allenano con pullix X1" loading="lazy">
+          <figcaption>In due</figcaption>
+        </figure>
+        <figure class="ph ph-wide">
+          <img src="assets/portable.jpg" alt="pullix X1 compatto e portatile" loading="lazy">
+          <figcaption>Compatto · Portatile</figcaption>
+        </figure>
       </div>
     </div>
   </section>
