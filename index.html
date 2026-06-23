@@ -1,1035 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pullix. — Brand Identity v1.0</title>
+  <meta name="description" content="pullix X1 — Smart home gym con resistenza digitale 0.5–20 kg per lato. Per palestre, hotel e retail. Contatta info@pullix.fit">
+  <title>pullix. X1 — Smart Home Gym</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --g950: #0F1114;
-      --g900: #14161A;
-      --g800: #1B1E23;
-      --g600: #3A3F46;
-      --g400: #8B919A;
-      --g200: #C7CCD3;
-      --mist: #F1F0EC;
-      --mist-warm: #FBFAF8;
-      --mist-border: #E2DFD7;
-      --volt: #C6F24E;
-      --display: 'Space Grotesk', sans-serif;
-      --body: 'Hanken Grotesk', sans-serif;
+      --dark:  #0F1114;
+      --dark2: #14161A;
+      --dark3: #1B1E23;
+      --mid:   #3A3F46;
+      --gray:  #8B919A;
+      --light: #C7CCD3;
+      --mist:  #F1F0EC;
+      --white: #F8F8F6;
+      --volt:  #C6F24E;
+      --volt-dark: #1A2008;
+      --d: 'Space Grotesk', sans-serif;
+      --b: 'Hanken Grotesk', sans-serif;
     }
 
-    html, body { margin: 0; padding: 0; background: var(--g950); }
-
-    body {
-      font-family: var(--body);
-      color: #F3F3F1;
-      overflow-x: hidden;
-    }
-
-    ::selection { background: var(--volt); color: #14161A; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--b); background: var(--dark); color: var(--white); overflow-x: hidden; }
+    ::selection { background: var(--volt); color: var(--volt-dark); }
 
     /* ── NAV ── */
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 56px;
-      border-bottom: 1px solid #23272D;
-      position: sticky;
-      top: 0;
-      background: rgba(15,17,20,0.82);
-      backdrop-filter: blur(12px);
-      z-index: 10;
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 24px;
+      background: rgba(15,17,20,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .wordmark {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.04em;
-      color: #F3F3F1;
-      text-decoration: none;
+    .logo {
+      font-family: var(--d); font-weight: 600; font-size: 22px;
+      letter-spacing: -0.04em; color: var(--white); text-decoration: none;
+      display: flex; align-items: baseline; gap: 1px;
     }
+    .logo span { color: var(--volt); }
 
-    .wordmark .vdot { color: var(--volt); }
-
-    .nav-meta {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      font-size: 12.5px;
-      letter-spacing: 0.04em;
-      color: var(--g400);
-      text-transform: uppercase;
+    .nav-cta {
+      background: var(--volt); color: var(--volt-dark);
+      font-family: var(--d); font-weight: 600; font-size: 13px;
+      letter-spacing: 0.01em; padding: 9px 18px; border-radius: 100px;
+      text-decoration: none; white-space: nowrap;
+      transition: opacity .15s;
     }
-
-    .nav-sep  { color: var(--g600); }
-    .nav-ver  { color: var(--volt); }
+    .nav-cta:hover { opacity: .85; }
 
     /* ── HERO ── */
     .hero {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      min-height: 88vh;
-      align-items: stretch;
+      position: relative; min-height: 100svh; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 24px 56px;
     }
 
-    .hero-content {
-      padding: 88px 56px 72px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background: var(--dark3);
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover; object-position: 60% 40%;
+      opacity: .75;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15,17,20,.3) 0%,
+        rgba(15,17,20,.1) 35%,
+        rgba(15,17,20,.7) 70%,
+        rgba(15,17,20,.95) 100%
+      );
     }
 
-    .hero-eyebrow { display: flex; align-items: center; gap: 14px; }
+    .hero-content { position: relative; z-index: 1; max-width: 640px; }
 
-    .dial { flex: none; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,.2); border-radius: 100px;
+      padding: 6px 14px; font-size: 12px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--light); margin-bottom: 24px;
+    }
+    .hero-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--volt); }
 
-    .hero-tag {
-      font-size: 12.5px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--g400);
+    .hero-h1 {
+      font-family: var(--d); font-weight: 700;
+      font-size: clamp(44px, 12vw, 80px);
+      line-height: 1; letter-spacing: -0.04em;
+      color: var(--white); margin-bottom: 8px;
     }
 
-    .hero-lockup { margin: 48px 0; }
-
-    .hero-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: clamp(72px, 11vw, 148px);
-      line-height: 0.9;
-      letter-spacing: -0.05em;
+    .hero-h1-en {
+      font-family: var(--d); font-weight: 400;
+      font-size: clamp(18px, 4.5vw, 28px);
+      letter-spacing: -0.02em; color: rgba(248,248,246,.55);
+      margin-bottom: 24px; line-height: 1.2;
     }
 
-    .hero-wm .sdot {
-      color: var(--volt);
-      font-size: 0.42em;
-      transform: translateY(-0.55em);
-      margin-left: 0.04em;
+    .hero-sub {
+      font-size: 15px; line-height: 1.6; color: var(--light);
+      max-width: 38ch; margin-bottom: 36px;
     }
 
-    .hero-tagline {
-      font-family: var(--display);
-      font-weight: 400;
-      font-size: clamp(22px, 2.6vw, 32px);
-      letter-spacing: -0.02em;
-      color: #F3F3F1;
-      margin: 22px 0 0;
-      max-width: 18ch;
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--volt); color: var(--volt-dark);
+      font-family: var(--d); font-weight: 600; font-size: 15px;
+      padding: 14px 28px; border-radius: 100px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: opacity .15s;
+    }
+    .btn-primary:hover { opacity: .88; }
+
+    .btn-ghost {
+      color: var(--light); font-size: 14px; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      border-bottom: 1px solid rgba(255,255,255,.2); padding-bottom: 2px;
+      transition: color .15s, border-color .15s;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,.5); }
+
+    .hero-scroll {
+      position: absolute; bottom: 56px; right: 24px; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gray); writing-mode: vertical-rl;
     }
 
-    .hero-foot { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid #2D323A;
-      border-radius: 100px;
-      padding: 8px 16px;
-      font-size: 13px;
-      letter-spacing: 0.04em;
-      color: var(--g200);
+    /* ── PRODUCT INTRO ── */
+    .intro {
+      background: var(--dark2); padding: 80px 24px;
     }
 
-    .chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--volt);
+    .intro-inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 48px;
     }
 
-    .hero-desc {
-      font-size: 14px;
-      color: var(--g400);
-      max-width: 42ch;
-      line-height: 1.5;
+    .tag {
+      font-family: var(--d); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--volt);
     }
 
-    .hero-img-wrap {
-      position: relative;
-      overflow: hidden;
-      background: var(--g800);
+    .intro-text h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(28px, 6vw, 42px); letter-spacing: -0.03em;
+      line-height: 1.1; margin: 12px 0 20px;
     }
 
-    .hero-img-wrap img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 60%;
+    .intro-text h2 em { font-style: normal; color: rgba(248,248,246,.4); }
+
+    .intro-text p {
+      font-size: 16px; line-height: 1.7; color: var(--light); max-width: 54ch;
     }
 
-    .hero-img-grad {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, #0F1114 0%, rgba(15,17,20,0) 22%);
+    .specs-row {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+      background: var(--mid); border-radius: 12px; overflow: hidden;
     }
 
-    .hero-img-label {
-      position: absolute;
-      left: 32px;
-      bottom: 28px;
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: -0.04em;
-      color: #fff;
-      mix-blend-mode: difference;
+    .spec-cell {
+      background: var(--dark3); padding: 24px 20px;
+      display: flex; flex-direction: column; gap: 4px;
     }
 
-    .hero-img-label .vdot { color: var(--volt); }
-
-    .hero-img-label .model {
-      font-weight: 400;
-      font-size: 13px;
-      margin-left: 8px;
-      letter-spacing: 0;
-      color: #fff;
+    .spec-val {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(22px, 5vw, 30px); letter-spacing: -0.03em;
+      color: var(--white);
     }
 
-    /* ── SHARED SECTION SHELL ── */
-    .sec-mark { background: var(--mist); color: #14161A; padding: 96px 56px; }
-    .sec-color { background: var(--g950); color: #F3F3F1; padding: 96px 56px; }
-    .sec-type  { background: var(--mist); color: #14161A; padding: 96px 56px; }
-    .sec-app   { background: var(--g950); color: #F3F3F1; padding: 96px 56px; }
-
-    .inner { max-width: 1240px; margin: 0 auto; }
-
-    .sec-hd { display: flex; align-items: baseline; gap: 16px; margin-bottom: 56px; }
-
-    .sec-n {
-      font-family: var(--display);
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+    .spec-key {
+      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gray);
     }
 
-    .sec-mark .sec-n  { color: #9A9388; }
-    .sec-color .sec-n { color: #5E636B; }
-    .sec-type .sec-n  { color: #9A9388; }
-    .sec-app .sec-n   { color: #5E636B; }
+    /* ── FEATURES ── */
+    .features { background: var(--mist); color: var(--dark2); padding: 80px 24px; }
 
-    .sec-t {
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 34px;
-      letter-spacing: -0.03em;
-      margin: 0;
+    .features-inner { max-width: 720px; margin: 0 auto; }
+
+    .section-label {
+      font-family: var(--d); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase; color: #9A9388;
+      margin-bottom: 12px;
     }
 
-    /* ── MARK ── */
-    .mark-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 24px;
-      align-items: stretch;
+    .features h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(26px, 5vw, 38px); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 48px;
     }
 
-    .clabel {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .features-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
     }
 
-    .cnote { font-size: 13px; }
-
-    /* Primary lockup */
-    .card-primary {
-      background: var(--mist-warm);
-      border: 1px solid var(--mist-border);
-      border-radius: 6px;
-      padding: 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 340px;
+    .feat {
+      background: #FBFAF8; border: 1px solid #E2DFD7; border-radius: 12px;
+      padding: 28px 24px;
     }
 
-    .card-primary .clabel { color: #A39C90; }
-    .card-primary .cnote  { color: #8C8579; }
-
-    .lockup-row { display: flex; align-items: center; gap: 24px; }
-
-    .lockup-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 64px;
-      line-height: 0.9;
-      letter-spacing: -0.05em;
-      color: #14161A;
+    .feat-icon {
+      width: 36px; height: 36px; margin-bottom: 16px;
     }
 
-    .lockup-wm .sdot { font-size: 0.4em; transform: translateY(-0.6em); color: #14161A; }
-
-    /* Monogram */
-    .card-mono {
-      background: #14161A;
-      border-radius: 6px;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 340px;
+    .feat h3 {
+      font-family: var(--d); font-weight: 600; font-size: 16px;
+      letter-spacing: -0.02em; margin-bottom: 8px; color: var(--dark2);
     }
 
-    .card-mono .clabel { color: #6E737B; }
-    .card-mono .cnote  { color: #7C828B; text-align: center; }
+    .feat p { font-size: 13.5px; line-height: 1.6; color: #6B655C; }
 
-    .mono-center { display: flex; justify-content: center; }
+    /* ── FOR WHO ── */
+    .forwho { background: var(--dark); padding: 80px 24px; }
 
-    .app-icon {
-      width: 124px;
-      height: 124px;
-      border-radius: 28px;
-      background: linear-gradient(160deg, #23272E, #14161A);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #2C313A;
+    .forwho-inner { max-width: 720px; margin: 0 auto; }
+
+    .forwho h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(26px, 5vw, 38px); letter-spacing: -0.03em;
+      line-height: 1.1; margin-bottom: 48px;
     }
 
-    .app-icon-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 74px;
-      letter-spacing: -0.05em;
-      color: #F3F3F1;
+    .forwho h2 em { font-style: normal; color: var(--volt); }
+
+    .audience-grid {
+      display: flex; flex-direction: column; gap: 16px;
     }
 
-    .app-icon-wm .vdot { color: var(--volt); font-size: 0.34em; transform: translateY(-0.4em); }
-
-    /* Variant row */
-    .variants { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 24px; }
-
-    .vcard {
-      border-radius: 6px;
-      padding: 38px;
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-      justify-content: space-between;
-      min-height: 150px;
+    .audience-card {
+      border: 1px solid var(--mid); border-radius: 12px;
+      padding: 28px 24px;
+      display: flex; flex-direction: column; gap: 10px;
     }
 
-    .vwm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 40px;
-      letter-spacing: -0.05em;
+    .audience-card h3 {
+      font-family: var(--d); font-weight: 600; font-size: 18px;
+      letter-spacing: -0.02em; color: var(--white);
+      display: flex; align-items: center; gap: 10px;
     }
 
-    .vwm .sdot { font-size: 0.4em; transform: translateY(-0.6em); }
-
-    .v-light { background: var(--mist-warm); border: 1px solid var(--mist-border); }
-    .v-light .clabel { color: #A39C90; }
-    .v-light .vwm { color: #14161A; }
-    .v-light .vwm .sdot { color: var(--volt); }
-
-    .v-dark { background: #14161A; }
-    .v-dark .clabel { color: #6E737B; }
-    .v-dark .vwm { color: #F3F3F1; }
-    .v-dark .vwm .sdot { color: var(--volt); }
-
-    .v-volt { background: var(--volt); }
-    .v-volt .clabel { color: #5A6B22; }
-    .v-volt .vwm { color: #14161A; }
-    .v-volt .vwm .sdot { color: #14161A; }
-
-    /* Usage notes */
-    .usage { margin-top: 40px; display: flex; gap: 48px; flex-wrap: wrap; font-size: 14px; color: #7C766B; }
-
-    .usage-item { max-width: 30ch; }
-    .usage-item.wide { max-width: 34ch; }
-
-    .usage-title {
-      font-family: var(--display);
-      font-weight: 600;
-      color: #14161A;
-      margin-bottom: 6px;
+    .audience-card h3 span {
+      font-size: 13px; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--volt);
     }
 
-    /* ── COLOR ── */
-    .color-primaries {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
+    .audience-card p { font-size: 14px; line-height: 1.65; color: var(--gray); }
+
+    /* ── TECH SPECS ── */
+    .techspecs { background: var(--dark2); padding: 80px 24px; }
+
+    .techspecs-inner { max-width: 720px; margin: 0 auto; }
+
+    .techspecs h2 {
+      font-family: var(--d); font-weight: 600;
+      font-size: clamp(26px, 5vw, 38px); letter-spacing: -0.03em;
+      margin-bottom: 40px;
     }
 
-    .swatch {
-      border-radius: 6px;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      min-height: 260px;
+    .specs-table { width: 100%; border-collapse: collapse; }
+
+    .specs-table tr { border-bottom: 1px solid var(--mid); }
+    .specs-table tr:last-child { border-bottom: none; }
+
+    .specs-table td {
+      padding: 16px 0; font-size: 15px; vertical-align: top;
     }
 
-    .swatch-lbl {
-      font-size: 12px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: auto;
+    .specs-table td:first-child {
+      color: var(--gray); width: 45%; font-size: 13px;
+      letter-spacing: 0.02em; padding-right: 16px;
     }
 
-    .swatch-name { font-family: var(--display); font-weight: 600; font-size: 26px; letter-spacing: -0.03em; }
-    .swatch-codes { display: flex; gap: 24px; margin-top: 8px; font-size: 13px; }
+    .specs-table td:last-child { color: var(--white); font-weight: 500; }
 
-    .sw-graphite { background: #14161A; border: 1px solid #23272D; }
-    .sw-graphite .swatch-lbl   { color: #6E737B; }
-    .sw-graphite .swatch-codes { color: var(--g400); }
-
-    .sw-volt { background: var(--volt); color: #1E2410; }
-    .sw-volt .swatch-lbl   { color: #56661F; }
-    .sw-volt .swatch-codes { color: #5A6B22; }
-
-    .gscale {
-      display: grid;
-      grid-template-columns: repeat(6,1fr);
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #23272D;
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--volt); color: var(--volt-dark);
+      padding: 80px 24px; text-align: center;
     }
 
-    .gchip { padding: 22px 18px; height: 120px; display: flex; flex-direction: column; justify-content: flex-end; }
-    .gchip-n { font-size: 12px; }
-    .gchip-h { font-size: 11px; }
-
-    .color-note { font-size: 14px; color: var(--g400); margin-top: 22px; max-width: 60ch; line-height: 1.6; }
-
-    /* ── TYPOGRAPHY ── */
-    .type-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-
-    .type-card {
-      background: var(--mist-warm);
-      border: 1px solid var(--mist-border);
-      border-radius: 6px;
-      padding: 44px;
+    .cta-section h2 {
+      font-family: var(--d); font-weight: 700;
+      font-size: clamp(32px, 8vw, 56px); letter-spacing: -0.04em;
+      line-height: 1; margin-bottom: 12px;
     }
 
-    .type-card-hd { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
-    .type-card-lbl { font-family: var(--display); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #A39C90; }
-    .type-card-name { font-size: 13px; color: #8C8579; }
-
-    .aa-display { font-family: var(--display); font-weight: 600; font-size: 84px; line-height: 0.95; letter-spacing: -0.04em; color: #14161A; }
-    .aa-body    { font-family: var(--body);    font-weight: 700; font-size: 84px; line-height: 0.95; letter-spacing: -0.02em; color: #14161A; }
-
-    .type-chars { font-size: 18px; color: #5C564C; margin-top: 18px; }
-    .type-chars.display { font-family: var(--display); letter-spacing: 0.02em; }
-    .type-chars.body    { font-family: var(--body); }
-
-    .type-scale {
-      background: var(--mist-warm);
-      border: 1px solid var(--mist-border);
-      border-radius: 6px;
-      padding: 44px;
-      margin-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .cta-section h2 em {
+      font-style: normal; opacity: .45;
     }
 
-    .scale-row {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      border-bottom: 1px solid #ECE9E1;
-      padding-bottom: 18px;
+    .cta-sub {
+      font-size: 15px; line-height: 1.6; opacity: .7;
+      max-width: 36ch; margin: 0 auto 36px;
     }
 
-    .scale-row:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .scale-lbl { width: 120px; flex: none; font-size: 12px; color: #A39C90; }
-
-    /* ── APPLICATIONS ── */
-    .life-card {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      min-height: 440px;
-      border: 1px solid #23272D;
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--volt-dark); color: var(--volt);
+      font-family: var(--d); font-weight: 600; font-size: 16px;
+      padding: 16px 32px; border-radius: 100px;
+      text-decoration: none; transition: opacity .15s;
     }
+    .btn-dark:hover { opacity: .85; }
 
-    .life-card img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 50% 55%;
+    .cta-note {
+      margin-top: 20px; font-size: 13px; opacity: .5;
     }
-
-    .life-grad {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(15,17,20,0.55) 0%, rgba(15,17,20,0) 30%, rgba(15,17,20,0.75) 100%);
-    }
-
-    .life-logo {
-      position: absolute;
-      top: 32px;
-      left: 32px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .life-logo-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 20px;
-      letter-spacing: -0.04em;
-      color: #fff;
-    }
-
-    .life-logo-wm .vdot { color: var(--volt); }
-
-    .life-hl {
-      position: absolute;
-      left: 32px;
-      bottom: 32px;
-      max-width: 30ch;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: clamp(28px, 3.4vw, 42px);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-
-    .app-cards { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 24px; margin-top: 24px; }
-
-    /* Hangtag */
-    .hangtag-wrap {
-      background: var(--g800);
-      border: 1px solid #23272D;
-      border-radius: 6px;
-      padding: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 300px;
-    }
-
-    .hangtag {
-      width: 190px;
-      background: #14161A;
-      border-radius: 14px;
-      padding: 30px 26px;
-      border: 1px solid #2C313A;
-    }
-
-    .hangtag-hole {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      border: 3px solid #2C313A;
-      margin: 0 auto 26px;
-    }
-
-    .hangtag-wm {
-      display: flex;
-      align-items: baseline;
-      justify-content: center;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 30px;
-      letter-spacing: -0.05em;
-      color: #F3F3F1;
-      margin-top: 18px;
-    }
-
-    .hangtag-wm .sdot { color: var(--volt); font-size: 0.4em; transform: translateY(-0.6em); }
-
-    .hangtag-model {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: #6E737B;
-      margin-top: 8px;
-    }
-
-    /* Spec card */
-    .spec-card {
-      background: var(--volt);
-      color: #1A2008;
-      border-radius: 6px;
-      padding: 44px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 300px;
-    }
-
-    .spec-top { display: flex; justify-content: space-between; align-items: flex-start; }
-
-    .spec-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 34px;
-      letter-spacing: -0.05em;
-      color: #1A2008;
-    }
-
-    .spec-wm .sdot { font-size: 0.4em; transform: translateY(-0.6em); color: #1A2008; }
-
-    .spec-model { font-family: var(--display); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #1A2008; }
-
-    .spec-tagline {
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 30px;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      color: #1A2008;
-    }
-
-    .spec-stats { display: flex; gap: 32px; margin-top: 26px; flex-wrap: wrap; }
-
-    .stat-val { font-family: var(--display); font-weight: 600; font-size: 26px; color: #1A2008; }
-    .stat-lbl { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #46570F; }
 
     /* ── FOOTER ── */
-    .footer {
-      background: var(--g950);
-      color: #F3F3F1;
-      padding: 72px 56px 88px;
-      border-top: 1px solid #23272D;
+    footer {
+      background: var(--dark2); padding: 40px 24px;
+      border-top: 1px solid var(--mid);
+      display: flex; flex-direction: column; gap: 20px;
+      align-items: center; text-align: center;
     }
 
-    .footer-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 32px;
+    .footer-logo {
+      font-family: var(--d); font-weight: 600; font-size: 28px;
+      letter-spacing: -0.04em; color: var(--white);
+      display: flex; align-items: baseline; gap: 1px;
+    }
+    .footer-logo span { color: var(--volt); }
+
+    footer p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    footer a { color: var(--gray); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── DESKTOP TWEAKS ── */
+    @media (min-width: 768px) {
+      nav { padding: 20px 48px; }
+
+      .hero { padding: 0 48px 72px; justify-content: center; padding-top: 120px; }
+      .hero-scroll { display: flex; }
+
+      .intro, .features, .forwho, .techspecs, .cta-section { padding: 100px 48px; }
+      footer { padding: 48px; flex-direction: row; justify-content: space-between; text-align: left; }
+
+      .features-grid { grid-template-columns: repeat(2,1fr); gap: 20px; }
+
+      .audience-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+
+      .specs-table td:first-child { width: 40%; }
     }
 
-    .footer-wm {
-      display: flex;
-      align-items: baseline;
-      font-family: var(--display);
-      font-weight: 600;
-      font-size: 56px;
-      letter-spacing: -0.05em;
-    }
+    @media (min-width: 1024px) {
+      nav { padding: 20px 64px; }
+      .hero { padding: 120px 64px 88px; }
+      .intro, .features, .forwho, .techspecs, .cta-section { padding: 120px 64px; }
+      footer { padding: 56px 64px; }
 
-    .footer-wm .sdot { color: var(--volt); font-size: 0.4em; transform: translateY(-0.6em); }
+      .intro-inner { flex-direction: row; align-items: center; gap: 64px; max-width: 1100px; margin: 0 auto; }
+      .intro-text { flex: 1.2; }
+      .specs-row   { flex: 1; grid-template-columns: 1fr; }
 
-    .footer-sub { font-size: 14px; color: var(--g400); margin-top: 8px; }
-
-    .footer-meta { font-size: 13px; color: #5E636B; letter-spacing: 0.04em; text-align: right; line-height: 1.6; }
-
-    /* ── MOBILE ── */
-    @media (max-width: 767px) {
-
-      /* Nav */
-      .nav { padding: 16px 24px; }
-      .nav-meta { display: none; }
-
-      /* Hero: stack, image below as fixed-height panel */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        min-height: unset;
-      }
-
-      .hero-content { padding: 52px 24px 40px; gap: 40px; }
-      .hero-lockup  { margin: 0; }
-
-      .hero-img-wrap {
-        position: relative;
-        height: 56vw;
-        min-height: 220px;
-      }
-
-      .hero-img-wrap img { position: absolute; }
-
-      .hero-img-grad {
-        background: linear-gradient(180deg, #0F1114 0%, rgba(15,17,20,0) 30%);
-      }
-
-      /* Sections */
-      .sec-mark,
-      .sec-color,
-      .sec-type,
-      .sec-app  { padding: 64px 24px; }
-
-      .sec-hd { margin-bottom: 36px; }
-      .sec-t  { font-size: 26px; }
-
-      /* Mark */
-      .mark-grid          { grid-template-columns: 1fr; }
-      .card-primary       { padding: 36px 28px; min-height: unset; }
-      .card-mono          { min-height: unset; padding: 32px 28px; }
-      .lockup-wm          { font-size: 48px; }
-      .variants           { grid-template-columns: 1fr; }
-      .vcard              { padding: 28px; min-height: unset; }
-      .vwm                { font-size: 34px; }
-      .usage              { gap: 28px; }
-
-      /* Color */
-      .color-primaries    { grid-template-columns: 1fr; }
-      .swatch             { min-height: 180px; padding: 28px; }
-      .gscale             { grid-template-columns: repeat(3,1fr); }
-
-      /* Typography */
-      .type-cols          { grid-template-columns: 1fr; }
-      .type-card          { padding: 28px; }
-      .aa-display,
-      .aa-body            { font-size: 60px; }
-      .type-scale         { padding: 28px; }
-      .scale-row          { flex-direction: column; gap: 6px; align-items: flex-start; }
-      .scale-lbl          { width: auto; }
-
-      /* Applications */
-      .life-card          { min-height: 300px; }
-      .app-cards          { grid-template-columns: 1fr; }
-
-      /* Footer */
-      .footer             { padding: 48px 24px 64px; }
-      .footer-inner       { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .footer-wm          { font-size: 40px; }
-      .footer-meta        { text-align: left; }
-    }
-
-    /* ── TABLET ── */
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .nav                { padding: 18px 32px; }
-      .hero-content       { padding: 64px 32px 56px; }
-      .sec-mark,
-      .sec-color,
-      .sec-type,
-      .sec-app            { padding: 80px 32px; }
-      .footer             { padding: 60px 32px 72px; }
-      .mark-grid          { grid-template-columns: 1fr; }
-      .card-primary       { min-height: unset; }
-      .card-mono          { min-height: unset; }
-      .app-cards          { grid-template-columns: 1fr; }
+      .features-inner,
+      .forwho-inner,
+      .techspecs-inner { max-width: 1100px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <nav class="nav">
-    <div class="wordmark">pullix<span class="vdot">.</span></div>
-    <div class="nav-meta">
-      <span>Brand Guidelines</span>
-      <span class="nav-sep">/</span>
-      <span>Model X1</span>
-      <span class="nav-sep">/</span>
-      <span class="nav-ver">v1.0</span>
-    </div>
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="#">pullix<span>.</span></a>
+    <a class="nav-cta" href="#contact">Contattaci / Contact</a>
   </nav>
 
-  <!-- HERO / COVER -->
+  <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg">
+      <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1" loading="eager">
+    </div>
     <div class="hero-content">
-      <div class="hero-eyebrow">
-        <svg class="dial" width="46" height="46" viewBox="0 0 100 100" fill="none">
-          <circle cx="50" cy="50" r="44" stroke="#F3F3F1" stroke-width="2.5"/>
-          <circle cx="50" cy="50" r="29" stroke="#F3F3F1" stroke-width="2.5" stroke-opacity="0.4"/>
-          <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="4" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-          <circle cx="50" cy="50" r="7" fill="#C6F24E"/>
-        </svg>
-        <span class="hero-tag">Smart Home Gym</span>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Model X1 &nbsp;·&nbsp; Smart Home Gym
       </div>
-
-      <div class="hero-lockup">
-        <div class="hero-wm">pullix<span class="sdot">.</span></div>
-        <p class="hero-tagline">Strength, at your fingertips.</p>
+      <h1 class="hero-h1">La palestra.<br>In un oggetto.</h1>
+      <p class="hero-h1-en">The whole gym. One object.</p>
+      <p class="hero-sub">Resistenza digitale da 0.5 a 20&nbsp;kg per lato, controllata in modo indipendente. Per palestre, hotel e retail.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#contact">
+          Contattaci
+          <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-ghost" href="#product">Scopri di più</a>
       </div>
-
-      <div class="hero-foot">
-        <span class="chip"><span class="chip-dot"></span>Model X1</span>
-        <span class="hero-desc">Digital-weight resistance, 0.5–20&nbsp;kg per side, independently controlled. The whole gym, distilled into one object.</span>
-      </div>
-    </div>
-
-    <div class="hero-img-wrap">
-      <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1 in use">
-      <div class="hero-img-grad"></div>
-      <div class="hero-img-label">pullix<span class="vdot">.</span><span class="model">X1</span></div>
     </div>
   </section>
 
-  <!-- 01 · THE MARK -->
-  <section class="sec-mark">
-    <div class="inner">
-      <div class="sec-hd">
-        <span class="sec-n">01</span>
-        <h2 class="sec-t">The mark</h2>
+  <!-- PRODUCT INTRO -->
+  <section class="intro" id="product">
+    <div class="intro-inner">
+      <div class="intro-text">
+        <p class="tag">pullix X1</p>
+        <h2>Tutta la forza,<br><em>senza il peso.</em></h2>
+        <p>pullix X1 è un sistema di resistenza digitale compatto che sostituisce un'intera sala pesi. Resistenza regolabile al mezzo chilo, controllo indipendente per ogni lato, utilizzabile a muro, a terra, in ufficio o in camera d'albergo.<br><br>
+        <em style="color:var(--gray);font-style:normal;">pullix X1 replaces an entire weight room. Adjustable resistance in 0.5 kg steps, independently controlled on each side — wall, floor, office or hotel room.</em></p>
       </div>
-
-      <div class="mark-grid">
-        <!-- Primary lockup -->
-        <div class="card-primary">
-          <span class="clabel">Primary lockup</span>
-          <div class="lockup-row">
-            <svg class="dial" width="84" height="84" viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="50" r="44" stroke="#14161A" stroke-width="2.5"/>
-              <circle cx="50" cy="50" r="29" stroke="#14161A" stroke-width="2.5" stroke-opacity="0.35"/>
-              <circle cx="50" cy="50" r="44" stroke="#14161A" stroke-width="4" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-              <circle cx="50" cy="50" r="7" fill="#14161A"/>
-            </svg>
-            <div class="lockup-wm">pullix<span class="sdot">.</span></div>
-          </div>
-          <span class="cnote">Dial mark + wordmark, locked at a 1:1 cap-height relationship.</span>
+      <div class="specs-row">
+        <div class="spec-cell">
+          <span class="spec-val">0.5–20</span>
+          <span class="spec-key">kg / lato</span>
         </div>
-
-        <!-- Monogram / app icon -->
-        <div class="card-mono">
-          <span class="clabel">Monogram / app icon</span>
-          <div class="mono-center">
-            <div class="app-icon">
-              <div class="app-icon-wm">p<span class="vdot">.</span></div>
-            </div>
-          </div>
-          <span class="cnote">Squircle, 22% corner radius.</span>
+        <div class="spec-cell">
+          <span class="spec-val">2×</span>
+          <span class="spec-key">Indipendenti</span>
         </div>
-      </div>
-
-      <!-- Variants -->
-      <div class="variants">
-        <div class="vcard v-light">
-          <span class="clabel">Wordmark</span>
-          <div class="vwm">pullix<span class="sdot">.</span></div>
-        </div>
-        <div class="vcard v-dark">
-          <span class="clabel">On graphite</span>
-          <div class="vwm">pullix<span class="sdot">.</span></div>
-        </div>
-        <div class="vcard v-volt">
-          <span class="clabel">On volt</span>
-          <div class="vwm">pullix<span class="sdot">.</span></div>
-        </div>
-      </div>
-
-      <!-- Usage rules -->
-      <div class="usage">
-        <div class="usage-item">
-          <div class="usage-title">Clear space</div>
-          <span>Keep clear space equal to the dial diameter on all sides.</span>
-        </div>
-        <div class="usage-item">
-          <div class="usage-title">Minimum size</div>
-          <span>Wordmark no smaller than 18&nbsp;px / 5&nbsp;mm in print.</span>
-        </div>
-        <div class="usage-item wide">
-          <div class="usage-title">The dot</div>
-          <span>The volt dot is the brand signature — it carries through the wordmark, the "i", and the dial centre.</span>
+        <div class="spec-cell">
+          <span class="spec-val">∞</span>
+          <span class="spec-key">Luoghi</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 · COLOUR -->
-  <section class="sec-color">
-    <div class="inner">
-      <div class="sec-hd">
-        <span class="sec-n">02</span>
-        <h2 class="sec-t">Colour</h2>
-      </div>
-
-      <div class="color-primaries">
-        <div class="swatch sw-graphite">
-          <span class="swatch-lbl">Primary</span>
-          <div class="swatch-name">Graphite</div>
-          <div class="swatch-codes"><span>#14161A</span><span>oklch(0.20 0.008 260)</span></div>
-        </div>
-        <div class="swatch sw-volt">
-          <span class="swatch-lbl">Accent</span>
-          <div class="swatch-name">Volt</div>
-          <div class="swatch-codes"><span>#C6F24E</span><span>oklch(0.90 0.18 122)</span></div>
-        </div>
-      </div>
-
-      <div class="gscale">
-        <div class="gchip" style="background:#0F1114;">
-          <span class="gchip-n" style="color:#8B919A;">950</span>
-          <span class="gchip-h" style="color:#5E636B;">#0F1114</span>
-        </div>
-        <div class="gchip" style="background:#14161A;">
-          <span class="gchip-n" style="color:#8B919A;">900</span>
-          <span class="gchip-h" style="color:#5E636B;">#14161A</span>
-        </div>
-        <div class="gchip" style="background:#1B1E23;">
-          <span class="gchip-n" style="color:#8B919A;">800</span>
-          <span class="gchip-h" style="color:#5E636B;">#1B1E23</span>
-        </div>
-        <div class="gchip" style="background:#3A3F46;">
-          <span class="gchip-n" style="color:#C7CCD3;">600</span>
-          <span class="gchip-h" style="color:#9298A1;">#3A3F46</span>
-        </div>
-        <div class="gchip" style="background:#8B919A;">
-          <span class="gchip-n" style="color:#14161A;">400</span>
-          <span class="gchip-h" style="color:#2A2E34;">#8B919A</span>
-        </div>
-        <div class="gchip" style="background:#F1F0EC;">
-          <span class="gchip-n" style="color:#14161A;">Mist</span>
-          <span class="gchip-h" style="color:#9A9388;">#F1F0EC</span>
-        </div>
-      </div>
-
-      <p class="color-note">Graphite carries the brand; volt appears in small, deliberate doses — never more than ~5% of any surface. Mist is the only light background.</p>
-    </div>
-  </section>
-
-  <!-- 03 · TYPOGRAPHY -->
-  <section class="sec-type">
-    <div class="inner">
-      <div class="sec-hd">
-        <span class="sec-n">03</span>
-        <h2 class="sec-t">Typography</h2>
-      </div>
-
-      <div class="type-cols">
-        <div class="type-card">
-          <div class="type-card-hd">
-            <span class="type-card-lbl">Display</span>
-            <span class="type-card-name">Space Grotesk</span>
-          </div>
-          <div class="aa-display">Aa</div>
-          <div class="type-chars display">ABCDEFGHIJKLM<br>abcdefghijklm 0123456789</div>
-        </div>
-        <div class="type-card">
-          <div class="type-card-hd">
-            <span class="type-card-lbl">Text</span>
-            <span class="type-card-name">Hanken Grotesk</span>
-          </div>
-          <div class="aa-body">Aa</div>
-          <div class="type-chars body">ABCDEFGHIJKLM<br>abcdefghijklm 0123456789</div>
-        </div>
-      </div>
-
-      <div class="type-scale">
-        <div class="scale-row">
-          <span class="scale-lbl">Display / 64</span>
-          <span style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:46px;letter-spacing:-0.04em;color:#14161A;">The whole gym, distilled.</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-lbl">Heading / 32</span>
-          <span style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:30px;letter-spacing:-0.02em;color:#14161A;">Digital weight, independently controlled</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-lbl">Body / 17</span>
-          <span style="font-family:'Hanken Grotesk',sans-serif;font-size:17px;color:#3C382F;max-width:52ch;line-height:1.55;">Resistance from 0.5 to 20&nbsp;kg per side, set in half-kilo steps. Train anywhere — wall, floor, office or hotel room — with the precision of a full rack.</span>
-        </div>
-        <div class="scale-row">
-          <span class="scale-lbl">Mono / label</span>
-          <span style="font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:#8C8579;">Model X1 · 0.5–20 kg · Independent</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 04 · IN USE -->
-  <section class="sec-app">
-    <div class="inner">
-      <div class="sec-hd">
-        <span class="sec-n">04</span>
-        <h2 class="sec-t">In use</h2>
-      </div>
-
-      <!-- Lifestyle hero -->
-      <div class="life-card">
-        <img src="project/uploads/pasted-1782187088770-0.png" alt="pullix X1 application">
-        <div class="life-grad"></div>
-        <div class="life-logo">
-          <svg class="dial" width="34" height="34" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="44" stroke="#fff" stroke-width="3"/>
-            <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="5" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-            <circle cx="50" cy="50" r="9" fill="#C6F24E"/>
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="features-inner">
+      <p class="section-label">Perché pullix / Why pullix</p>
+      <h2>Progettato per<br>chi non ha compromessi.</h2>
+      <div class="features-grid">
+        <div class="feat">
+          <svg class="feat-icon" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="15" stroke="#14161A" stroke-width="1.5" stroke-opacity=".3"/>
+            <circle cx="18" cy="18" r="15" stroke="#C6F24E" stroke-width="2" stroke-dasharray="24 70" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+            <circle cx="18" cy="18" r="4" fill="#14161A"/>
           </svg>
-          <div class="life-logo-wm">pullix<span class="vdot">.</span></div>
+          <h3>Resistenza digitale</h3>
+          <p>Da 0.5 a 20 kg in passi da 0.5 kg. Preciso come un rack, compatto come uno zaino.<br><span style="color:#9A9388;font-size:12px;">0.5 to 20 kg in 0.5 kg steps.</span></p>
         </div>
-        <div class="life-hl">Your office is now<br>your gym.</div>
-      </div>
-
-      <!-- Hangtag + spec card -->
-      <div class="app-cards">
-        <div class="hangtag-wrap">
-          <div class="hangtag">
-            <div class="hangtag-hole"></div>
-            <svg width="60" height="60" viewBox="0 0 100 100" fill="none" style="display:block;margin:0 auto;">
-              <circle cx="50" cy="50" r="44" stroke="#F3F3F1" stroke-width="3"/>
-              <circle cx="50" cy="50" r="29" stroke="#F3F3F1" stroke-width="3" stroke-opacity="0.4"/>
-              <circle cx="50" cy="50" r="44" stroke="#C6F24E" stroke-width="5" stroke-dasharray="69 208" stroke-linecap="round" transform="rotate(-90 50 50)"/>
-              <circle cx="50" cy="50" r="9" fill="#C6F24E"/>
-            </svg>
-            <div class="hangtag-wm">pullix<span class="sdot">.</span></div>
-            <div class="hangtag-model">Model X1</div>
-          </div>
+        <div class="feat">
+          <svg class="feat-icon" viewBox="0 0 36 36" fill="none">
+            <rect x="4" y="12" width="10" height="12" rx="3" stroke="#14161A" stroke-width="1.5"/>
+            <rect x="22" y="12" width="10" height="12" rx="3" stroke="#C6F24E" stroke-width="1.5"/>
+            <path d="M14 18h8" stroke="#14161A" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <h3>Controllo indipendente</h3>
+          <p>Ogni lato con resistenza diversa. Ideale per riabilitazione e allenamento asimmetrico.<br><span style="color:#9A9388;font-size:12px;">Each side independently set.</span></p>
         </div>
-
-        <div class="spec-card">
-          <div class="spec-top">
-            <div class="spec-wm">pullix<span class="sdot">.</span></div>
-            <span class="spec-model">X1</span>
-          </div>
-          <div>
-            <div class="spec-tagline">Strength, at your fingertips.</div>
-            <div class="spec-stats">
-              <div>
-                <div class="stat-val">0.5–20</div>
-                <div class="stat-lbl">kg / side</div>
-              </div>
-              <div>
-                <div class="stat-val">2×</div>
-                <div class="stat-lbl">independent</div>
-              </div>
-              <div>
-                <div class="stat-val">∞</div>
-                <div class="stat-lbl">places to train</div>
-              </div>
-            </div>
-          </div>
+        <div class="feat">
+          <svg class="feat-icon" viewBox="0 0 36 36" fill="none">
+            <path d="M8 28V12l10-6 10 6v16" stroke="#14161A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14 28v-8h8v8" stroke="#C6F24E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Ovunque</h3>
+          <p>A muro, a terra, in hotel, in ufficio, all'aperto. Nessun ancoraggio permanente.<br><span style="color:#9A9388;font-size:12px;">Wall, floor, outdoors — no permanent install.</span></p>
+        </div>
+        <div class="feat">
+          <svg class="feat-icon" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="13" stroke="#14161A" stroke-width="1.5"/>
+            <path d="M18 11v7l5 3" stroke="#C6F24E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Setup in 30 secondi</h3>
+          <p>Nessun montaggio. Nessun cavo. Nessun peso da spostare.<br><span style="color:#9A9388;font-size:12px;">No assembly. Ready in 30 seconds.</span></p>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- FOR WHO -->
+  <section class="forwho">
+    <div class="forwho-inner">
+      <p class="tag" style="color:var(--gray);">Per chi / For whom</p>
+      <h2>Il prodotto <em>giusto</em><br>per il tuo business.</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <h3>Palestre <span>Gyms</span></h3>
+          <p>Differenziati con un'attrezzatura che i tuoi competitor non hanno. Spazio minimo, valore massimo. Attira clienti premium.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Hotel <span>Hospitality</span></h3>
+          <p>Porta la palestra direttamente in camera. Un'amenity di lusso che gli ospiti ricordano e che giustifica tariffe più alte.</p>
+        </div>
+        <div class="audience-card">
+          <h3>Retail <span>Stores</span></h3>
+          <p>Un prodotto ad alto margine con un design che vende da solo. Ideale per store di fitness, lifestyle e design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH SPECS -->
+  <section class="techspecs">
+    <div class="techspecs-inner">
+      <p class="section-label">Specifiche / Specs</p>
+      <h2>Model X1</h2>
+      <table class="specs-table">
+        <tr>
+          <td>Resistenza per lato / Resistance per side</td>
+          <td>0.5 – 20 kg</td>
+        </tr>
+        <tr>
+          <td>Incrementi / Steps</td>
+          <td>0.5 kg</td>
+        </tr>
+        <tr>
+          <td>Lati / Sides</td>
+          <td>2× controllo indipendente</td>
+        </tr>
+        <tr>
+          <td>Modalità uso / Use modes</td>
+          <td>Muro · Pavimento · Esterno · Ufficio</td>
+        </tr>
+        <tr>
+          <td>Installazione / Installation</td>
+          <td>Nessuna — plug &amp; train</td>
+        </tr>
+        <tr>
+          <td>Target / Market</td>
+          <td>B2B — Palestre, Hotel, Retail</td>
+        </tr>
+        <tr>
+          <td>Prezzo / Price</td>
+          <td>Da €&nbsp;1.000 &nbsp;·&nbsp; from €&nbsp;1,000</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2>Porta pullix<br><em>nel tuo spazio.</em></h2>
+    <p class="cta-sub">Richiedi informazioni per palestre, hotel e retail. Per ordini, prezzi e disponibilità contattaci via email.<br><em style="opacity:.6">For gym, hotel &amp; retail inquiries — contact us.</em></p>
+    <a class="btn-dark" href="mailto:info@pullix.fit">
+      <svg width="18" height="18" fill="none" viewBox="0 0 18 18"><rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      info@pullix.fit
+    </a>
+    <p class="cta-note">Risposta entro 24h · We reply within 24h</p>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div>
-        <div class="footer-wm">pullix<span class="sdot">.</span></div>
-        <div class="footer-sub">pullix.fit · Smart Home Gym · Model X1</div>
-      </div>
-      <div class="footer-meta">Brand Identity v1.0<br>© pullix.fit</div>
+  <footer>
+    <div>
+      <div class="footer-logo">pullix<span>.</span></div>
+      <p style="margin-top:6px;">pullix.fit &nbsp;·&nbsp; Smart Home Gym &nbsp;·&nbsp; Model X1</p>
     </div>
+    <p><a href="mailto:info@pullix.fit">info@pullix.fit</a><br>© 2025 pullix.fit</p>
   </footer>
 
 </body>
