@@ -56,8 +56,8 @@
   bar.setAttribute('aria-label', en ? 'Cookie consent' : 'Consenso cookie');
   bar.innerHTML =
     '<p>' + (en
-      ? 'We use cookies for anonymous visit statistics (Google Analytics) — only if you accept.'
-      : 'Usiamo i cookie per statistiche anonime sulle visite (Google Analytics) — solo se accetti.') + '</p>' +
+      ? 'We use cookies for anonymous visit statistics (Google Analytics) — only if you accept. <a href="/en/privacy/">More info</a>'
+      : 'Usiamo i cookie per statistiche anonime sulle visite (Google Analytics) — solo se accetti. <a href="/privacy/">Maggiori info</a>') + '</p>' +
     '<div class="cookie-actions">' +
     '<button class="ck-yes">' + (en ? 'Accept' : 'Accetta') + '</button>' +
     '<button class="ck-no">' + (en ? 'Decline' : 'Rifiuta') + '</button>' +

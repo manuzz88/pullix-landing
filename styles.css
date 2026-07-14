@@ -573,3 +573,5 @@ footer a:hover { color: var(--white); }
 @media (max-width: 480px) {
   .cookie-bar { right: 92px; max-width: none; }
 }
+.cookie-bar a { color: var(--volt); text-decoration: none; }
+.cookie-bar a:hover { text-decoration: underline; }
