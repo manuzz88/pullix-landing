@@ -550,3 +550,26 @@ footer a:hover { color: var(--white); }
   .faq { padding: 120px 64px; }
   .faq-inner { max-width: 900px; }
 }
+
+/* ── COOKIE BANNER ── */
+.cookie-bar {
+  position: fixed; left: 20px; bottom: 20px; z-index: 98;
+  max-width: 340px;
+  background: var(--dark3); border: 1px solid var(--mid); border-radius: 14px;
+  padding: 18px; box-shadow: 0 8px 28px rgba(0,0,0,.45);
+}
+.cookie-bar p {
+  font-size: 13px; line-height: 1.55; color: var(--light); margin-bottom: 14px;
+}
+.cookie-actions { display: flex; gap: 10px; }
+.cookie-actions button {
+  font-family: var(--d); font-weight: 600; font-size: 13px;
+  padding: 9px 18px; border-radius: 100px; cursor: pointer;
+  border: none; transition: opacity .15s;
+}
+.cookie-actions button:hover { opacity: .85; }
+.ck-yes { background: var(--volt); color: var(--volt-dark); }
+.ck-no { background: transparent; color: var(--gray); border: 1px solid var(--mid) !important; }
+@media (max-width: 480px) {
+  .cookie-bar { right: 92px; max-width: none; }
+}
