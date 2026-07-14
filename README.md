@@ -6,7 +6,9 @@ Sito statico servito via GitHub Pages su [pullix.fit](https://pullix.fit).
 
 ## Struttura
 
-- `index.html` — landing page (single page, CSS/JS inline)
+- `index.html` — landing page italiana
+- `en/index.html` — landing page inglese
+- `styles.css` / `site.js` — stile e script condivisi tra le due lingue
 - `assets/` — foto prodotto e video
 - `og-image.jpg` — anteprima social (Open Graph)
 - `favicon.svg` — favicon
