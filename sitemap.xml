@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pullix.fit/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pullix.fit/"/>
@@ -12,13 +12,13 @@
   </url>
   <url>
     <loc>https://pullix.fit/allenamenti/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pullix.fit/en/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="it" href="https://pullix.fit/"/>

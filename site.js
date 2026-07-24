@@ -28,12 +28,16 @@
   targets.forEach(function (el) { io.observe(el); });
 })();
 
-/* Google Analytics — si attiva solo dopo il consenso */
+/* Google Analytics — si attiva solo dopo il consenso, revocabile dal footer */
 (function () {
   var GA_ID = 'G-D70J3L8M24';
   var KEY = 'pullix-consent';
+  var gaLoaded = false;
 
   function loadGA() {
+    window['ga-disable-' + GA_ID] = false;
+    if (gaLoaded) return;
+    gaLoaded = true;
     var s = document.createElement('script');
     s.async = true;
     s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
@@ -44,31 +48,45 @@
     gtag('config', GA_ID, { anonymize_ip: true });
   }
 
+  function showBanner() {
+    if (document.querySelector('.cookie-bar')) return;
+    var en = document.documentElement.lang === 'en';
+    var bar = document.createElement('div');
+    bar.className = 'cookie-bar';
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', en ? 'Cookie consent' : 'Consenso cookie');
+    bar.innerHTML =
+      '<p>' + (en
+        ? 'We use cookies for anonymous visit statistics (Google Analytics) — only if you accept. <a href="/en/privacy/">More info</a>'
+        : 'Usiamo i cookie per statistiche anonime sulle visite (Google Analytics) — solo se accetti. <a href="/privacy/">Maggiori info</a>') + '</p>' +
+      '<div class="cookie-actions">' +
+      '<button class="ck-yes">' + (en ? 'Accept' : 'Accetta') + '</button>' +
+      '<button class="ck-no">' + (en ? 'Decline' : 'Rifiuta') + '</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+
+    function done(val) {
+      try { localStorage.setItem(KEY, val); } catch (e) {}
+      bar.remove();
+      if (val === 'yes') loadGA();
+      else window['ga-disable-' + GA_ID] = true;
+    }
+    bar.querySelector('.ck-yes').addEventListener('click', function () { done('yes'); });
+    bar.querySelector('.ck-no').addEventListener('click', function () { done('no'); });
+  }
+
   var choice = null;
   try { choice = localStorage.getItem(KEY); } catch (e) {}
-  if (choice === 'yes') { loadGA(); return; }
-  if (choice === 'no') return;
+  if (choice === 'yes') loadGA();
+  else if (choice === 'no') window['ga-disable-' + GA_ID] = true;
+  else showBanner();
 
-  var en = document.documentElement.lang === 'en';
-  var bar = document.createElement('div');
-  bar.className = 'cookie-bar';
-  bar.setAttribute('role', 'dialog');
-  bar.setAttribute('aria-label', en ? 'Cookie consent' : 'Consenso cookie');
-  bar.innerHTML =
-    '<p>' + (en
-      ? 'We use cookies for anonymous visit statistics (Google Analytics) — only if you accept. <a href="/en/privacy/">More info</a>'
-      : 'Usiamo i cookie per statistiche anonime sulle visite (Google Analytics) — solo se accetti. <a href="/privacy/">Maggiori info</a>') + '</p>' +
-    '<div class="cookie-actions">' +
-    '<button class="ck-yes">' + (en ? 'Accept' : 'Accetta') + '</button>' +
-    '<button class="ck-no">' + (en ? 'Decline' : 'Rifiuta') + '</button>' +
-    '</div>';
-  document.body.appendChild(bar);
-
-  function done(val) {
-    try { localStorage.setItem(KEY, val); } catch (e) {}
-    bar.remove();
-    if (val === 'yes') loadGA();
-  }
-  bar.querySelector('.ck-yes').addEventListener('click', function () { done('yes'); });
-  bar.querySelector('.ck-no').addEventListener('click', function () { done('no'); });
+  /* Link "Preferenze cookie": cancella la scelta e ripropone il banner */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-cookie-prefs]') : null;
+    if (!t) return;
+    e.preventDefault();
+    try { localStorage.removeItem(KEY); } catch (err) {}
+    showBanner();
+  });
 })();
