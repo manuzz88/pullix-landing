@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Acquista pullix X1 e le schede di allenamento premium direttamente online. Pagamento sicuro con Stripe.">
+  <!-- Pagina in anteprima: rimuovere noindex al go-live dello shop -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Acquista — pullix.fit</title>
+  <link rel="canonical" href="https://pullix.fit/acquista/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0F1114">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="pullix.fit">
+  <meta property="og:title" content="Acquista pullix X1 online">
+  <meta property="og:description" content="pullix X1 da €1.750, schede premium e programma referral. Pagamento sicuro con Stripe.">
+  <meta property="og:url" content="https://pullix.fit/acquista/">
+  <meta property="og:image" content="https://pullix.fit/og-image.jpg?v=1">
+  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .sh { background: var(--dark); padding: 130px 24px 80px; min-height: 100vh; }
+    .sh-inner { max-width: 1100px; margin: 0 auto; }
+    .sh h1 {
+      font-family: var(--d); font-weight: 700;
+      font-size: clamp(34px, 7vw, 56px); letter-spacing: -0.04em;
+      line-height: 1.05; margin-bottom: 16px;
+    }
+    .sh h1 em { font-style: normal; color: var(--volt); }
+    .sh-sub { font-size: 15px; line-height: 1.65; color: var(--light); max-width: 62ch; margin-bottom: 48px; }
+    .sh-label {
+      font-family: var(--d); font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+      color: var(--volt); text-transform: uppercase; margin: 56px 0 18px;
+    }
+    .sh-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .sh-card {
+      border: 1px solid var(--mid); border-radius: 14px; padding: 28px 24px;
+      background: var(--dark2);
+      display: flex; flex-direction: column; gap: 12px;
+      transition: border-color .15s, transform .15s;
+    }
+    .sh-card:hover { border-color: var(--volt); transform: translateY(-2px); }
+    .sh-card.hero-card { border-color: var(--volt); background: var(--dark3); }
+    .sh-card h2 { font-family: var(--d); font-weight: 600; font-size: 21px; letter-spacing: -0.02em; }
+    .sh-card p { font-size: 13.5px; line-height: 1.6; color: var(--gray); flex: 1; }
+    .sh-price {
+      font-family: var(--d); font-weight: 700; font-size: 30px; letter-spacing: -0.03em;
+      color: var(--white);
+    }
+    .sh-price small { font-size: 12px; font-weight: 500; color: var(--gray); letter-spacing: 0; }
+    .sh-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sh-tag {
+      font-family: var(--d); font-size: 10px; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--light);
+      background: var(--dark3); border: 1px solid var(--mid); border-radius: 100px; padding: 5px 11px;
+    }
+    .sh-buy {
+      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+      background: var(--volt); color: var(--volt-dark); border: 0; cursor: pointer;
+      font-family: var(--d); font-weight: 600; font-size: 13.5px;
+      padding: 12px 24px; border-radius: 100px; text-decoration: none;
+      transition: opacity .15s; margin-top: 6px;
+    }
+    .sh-buy:hover { opacity: .85; }
+    .sh-buy.ghost {
+      background: transparent; color: var(--white); border: 1px solid var(--mid);
+    }
+    .sh-buy.ghost:hover { border-color: var(--volt); opacity: 1; }
+    .sh-split { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .sh-note { margin-top: 48px; font-size: 12.5px; line-height: 1.7; color: var(--gray); max-width: 75ch; }
+    .sh-note a { color: var(--volt); text-decoration: none; }
+    /* Avviso "shop in arrivo" */
+    .sh-toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%);
+      background: var(--dark3); border: 1px solid var(--volt); border-radius: 14px;
+      padding: 18px 22px; max-width: 92vw; width: 420px; z-index: 200;
+      font-size: 13.5px; line-height: 1.6; color: var(--light);
+      box-shadow: 0 12px 40px rgba(0,0,0,.5);
+    }
+    .sh-toast strong { color: var(--white); }
+    .sh-toast .sh-toast-actions { display: flex; gap: 10px; margin-top: 12px; }
+    .sh-toast a, .sh-toast button {
+      font-family: var(--d); font-size: 12.5px; font-weight: 600; cursor: pointer;
+      padding: 9px 18px; border-radius: 100px; text-decoration: none; border: 0;
+    }
+    .sh-toast a { background: var(--volt); color: var(--volt-dark); }
+    .sh-toast button { background: transparent; color: var(--gray); border: 1px solid var(--mid); }
+    @media (min-width: 768px) {
+      .sh { padding: 150px 48px 100px; }
+      .sh-grid { grid-template-columns: 1fr 1fr; }
+      .sh-split { grid-template-columns: 1.2fr 1fr; }
+    }
+    @media (min-width: 1024px) { .sh { padding: 160px 64px 120px; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/">pullix<span>.</span></a>
+    <div class="nav-right">
+      <a class="nav-cta" href="/#contact">Contattaci</a>
+    </div>
+  </nav>
+
+  <main class="sh">
+    <div class="sh-inner">
+      <p class="tag">Shop ufficiale / Official store</p>
+      <h1>Acquista<br><em>pullix.</em></h1>
+      <p class="sh-sub">Compra pullix X1 e le schede premium direttamente da qui, con pagamento sicuro gestito da Stripe. Ricevi fattura e puoi seguire i tuoi ordini in ogni momento.<br><em style="color:var(--gray);font-style:normal;">Buy pullix X1 and premium programs online — secure checkout by Stripe.</em></p>
+
+      <!-- X1 -->
+      <p class="sh-label">Il prodotto / The product</p>
+      <div class="sh-split">
+        <div class="sh-card hero-card">
+          <h2>pullix X1</h2>
+          <p>La prima palestra portatile ricaricabile al mondo. Due motori elettrici, 0.5–20 kg per lato regolabili in modo indipendente, batteria integrata e app dedicata iOS &amp; Android. Include le due maniglie e tutto il necessario per iniziare.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">Spedizione in Italia</span><span class="sh-tag">Garanzia 2 anni</span><span class="sh-tag">Reso 14 giorni</span>
+          </div>
+          <span class="sh-price">€1.750 <small>IVA inclusa</small></span>
+          <button class="sh-buy" data-stripe="x1">
+            Acquista ora
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="sh-card">
+          <h2>Più di un'unità?</h2>
+          <p>Sei una palestra, un hotel o un negozio? Per acquisti multipli prepariamo offerte su misura con sconti volume, fatturazione dedicata e supporto all'installazione.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">B2B</span><span class="sh-tag">Sconti volume</span><span class="sh-tag">Preventivo in 24h</span>
+          </div>
+          <a class="sh-buy ghost" href="https://wa.me/393495134895?text=Ciao%21%20Vorrei%20un%20preventivo%20per%20pi%C3%B9%20unit%C3%A0%20di%20pullix%20X1." target="_blank" rel="noopener">Richiedi un preventivo</a>
+        </div>
+      </div>
+
+      <!-- SCHEDE PREMIUM -->
+      <p class="sh-label">Schede premium / Premium programs</p>
+      <div class="sh-grid">
+        <div class="sh-card">
+          <h2>Transformation 12 settimane</h2>
+          <p>Il percorso completo: 12 settimane progressive dalla base alla forza avanzata, con progressioni settimanali, video di riferimento e tracker dei carichi. Il passo successivo dopo le schede gratuite.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">Intermedio</span><span class="sh-tag">12 settimane</span><span class="sh-tag">PDF + Tracker</span>
+          </div>
+          <span class="sh-price">€14,90</span>
+          <button class="sh-buy" data-stripe="scheda-transformation">Acquista</button>
+        </div>
+        <div class="sh-card">
+          <h2>Athlete Pack</h2>
+          <p>Tre programmi specialistici in un unico pacchetto: potenza esplosiva, resistenza muscolare e core stability. Per chi si allena seriamente e vuole il massimo da pullix X1.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">Avanzato</span><span class="sh-tag">3 programmi</span><span class="sh-tag">PDF</span>
+          </div>
+          <span class="sh-price">€19,90</span>
+          <button class="sh-buy" data-stripe="scheda-athlete">Acquista</button>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:12.5px;color:var(--gray);">Le <a href="/allenamenti/" style="color:var(--volt);text-decoration:none;">schede base</a> restano gratuite, per sempre.</p>
+
+      <!-- REFERRAL -->
+      <p class="sh-label">Porta un amico / Refer a friend</p>
+      <div class="sh-split">
+        <div class="sh-card">
+          <h2>Il tuo codice, il suo sconto.</h2>
+          <p>Dopo il tuo acquisto ricevi un <strong style="color:var(--white);">codice personale</strong> da condividere: chi lo usa ottiene uno <strong style="color:var(--white);">sconto sul suo ordine</strong> e tu accumuli un premio per ogni amico che compra. Nessun limite di inviti.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">Sconto per l'amico</span><span class="sh-tag">Premio per te</span>
+          </div>
+          <button class="sh-buy ghost" data-stripe="referral">Richiedi il tuo codice</button>
+        </div>
+        <div class="sh-card">
+          <h2>I miei ordini</h2>
+          <p>Accedi al portale clienti con la tua email: trovi lo storico degli acquisti, le fatture da scaricare e lo stato delle spedizioni.</p>
+          <div class="sh-meta">
+            <span class="sh-tag">Fatture</span><span class="sh-tag">Storico ordini</span>
+          </div>
+          <button class="sh-buy ghost" data-stripe="portal">Accedi al portale</button>
+        </div>
+      </div>
+
+      <p class="sh-note">Pagamenti elaborati da Stripe: carte, Apple&nbsp;Pay, Google&nbsp;Pay. I dati della carta non transitano mai dai nostri server. Spedizione in Italia inclusa; per il resto d'Europa <a href="/#contact">contattaci</a>. Diritto di recesso entro 14 giorni dalla consegna. <a href="/privacy/">Privacy</a></p>
+
+      <p style="margin-top:48px;"><a href="/" style="color:var(--volt);text-decoration:none;">← Torna alla home</a></p>
+    </div>
+  </main>
+
+  <script src="/store.js" defer></script>
+  <script src="/site.js" defer></script>
+
+</body>
+</html>
